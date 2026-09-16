@@ -41,6 +41,9 @@ Ennumerate and explain each one of the files included in this repo.
    - **Prettier:** Formats and organize the code with consistent style rules.
    - **Markdown All in One:** Add add useful features for markdown editing (shortcuts, automatic list and table formatting, table of contents, etc)
 4. **Install the extensions listed in the previous point in VSCode**.
+
+- Already installed.
+
 5. **What other extensions do you know that you consider interesting for developing in JavaScript**?
 
 - **Console ninja**: JavaScript console.log output and runtime errors right next to your code.
