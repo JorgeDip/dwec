@@ -134,4 +134,7 @@ document.body.innerHTML = "<h1>Hello document!<h1>";
 
 22. **Follow the instructions in the command line provided by GitHub to add your files, create the first commit and push it. Notice that in out case we have to add all files to the staged area with `git add .`, not just`git add README.md`**
 
+![Git add](images/git_add.png)
+![Git push](images/git_push.png)
+
 23. **To finish, submit the link of your GH repo to the task in our Classroom.**
