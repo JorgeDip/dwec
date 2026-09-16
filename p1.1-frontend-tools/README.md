@@ -113,9 +113,25 @@ document.body.innerHTML = "<h1>Hello document!<h1>";
 ### Install Git, and upload your repository to GitHub
 
 17. **Install [git](https://git-scm.com/) in your computer**.
+
+![Git installation](images/git.png)
+
 18. **Init the git repository**
+
+![Git init](images/init.png)
+
 19. **Log in to your GitHub account provided by IES Azarquiel**
+
+![Github](images/github.png)
+
 20. **Follow the teacher on GitHub at the following link: [https://github.com/jeatzr/](https://github.com/jeatzr/)**
+
+![Follow](images/follow.png)
+
 21. **Create a new empty repository on GitHub named `p1.1-frontend-tools`.**
+
+![New repository](images/new_repository.png.png)
+
 22. **Follow the instructions in the command line provided by GitHub to add your files, create the first commit and push it. Notice that in out case we have to add all files to the staged area with `git add .`, not just`git add README.md`**
+
 23. **To finish, submit the link of your GH repo to the task in our Classroom.**
