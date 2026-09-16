@@ -31,7 +31,7 @@ Ennumerate and explain each one of the files included in this repo.
 
 - It's already installed.
 
-![VSCode Image](/images/image.png)
+![VSCode Image](images/image.png)
 
 2. **Create a new folder called `p1.1-frontend-tools`and open it as a workspace in VSCode. Copy the current `README.md` inside it**.
 3. **What functionalities do the following VSCode extensions add?**
@@ -86,11 +86,11 @@ document.body.innerHTML = "<h1>Hello document!<h1>";
 
 11. **Launch `index.html` in Live Server and check that the script is running. Click right button and select inspect to show the developer tools and take a look on the console.**
 
-![Console](/images/console.png)
+![Console](images/console.png)
 
 12. **Change some message in the JS code and sava changes. You can check that Live Server refreshes the web page.**
 
-![New Message Console](/images/console-2.png)
+![New Message Console](images/console-2.png)
 
 ### Create a simple form with Bootstrap 4.
 
@@ -100,11 +100,15 @@ document.body.innerHTML = "<h1>Hello document!<h1>";
 
 14. **Create a `<div>`with the class `.container` to wrap all the sections in the web page**
 
-![Wrapper](/iamges/wrapper.png)
+![Wrapper](images/wrapper.png)
 
 15. **Add a standard navigation bar inside the nav area using the `bs5-navbar-standard` snippet inside the container**
 
+![Navbar code](images/navbar.png)
+
 16. **Inside the main area create a form using Bootstrap to collect data from a new user who wants to register at an academy that offers courses. We can copy code from [Bootstrap Documentation](https://getbootstrap.com/docs/5.0/forms/overview/)**.
+
+![Form code](images/form.png)
 
 ### Install Git, and upload your repository to GitHub
 
