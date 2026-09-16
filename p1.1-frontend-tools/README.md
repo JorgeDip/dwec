@@ -12,6 +12,7 @@ Ennumerate and explain each one of the files included in this repo.
 - **/images:** Images folder for the exercises.
 - **index.html:** Html file for the exercise 7.
 - **app.js:** Js file for the exercise 9.
+- **form.html:** Html file for the exercise 13.
 
 #### Instructions:
 
