@@ -8,16 +8,19 @@
 </head>
 
 <body>
-    <div id="container"></div>asdasd
+    <div id="container"></div>
 
     <script>
         let age = 0;
         do {
             age = parseInt(prompt("Write your age"));
 
-            if (isNaN(age)) alert("Age is ");
+            if (isNaN(age)) alert("Please write a number");
 
-        } while (age < 18);
+        } while (isNaN(age) || age < 18);
+
+        const container = document.getElementById("container");
+        container.innerHTML = "<h1>Welcome to my awesome website for adult people</h1>";
 
     </script>
 </body>
