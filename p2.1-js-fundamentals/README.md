@@ -8,9 +8,18 @@
 
 Ennumerate and explain each one of the files included in this repo.
 
-- File 1
-- File 2
-- Etc...
+- **01_fizzBuzz.js:** Multiples of 3 print Fizz, multiples of 5 print Buzz and multiples of 3 and 5 print FizzBuzz.
+- **02_untilAdult.html:** Check if the user is 18 years old and control the NaN value.
+- **03_random.js:** Print a number between 2 given numbers.
+- **04_lottery.js:** Print 10 lottery numbers with the previous function.
+- **05_getDate.js:** Get the actual date formated YYYY-MM-DD HH:MM:SS.
+- **06_daysBetweenDates.js:** Get the difference in days of 2 given dates.
+- **07_leapYear.js:** Function to check if a years is leap.
+- **08_calculateAge.js:** Function to calculate the years of a person based in his birthdate.
+- **09_message.js:** Function that takes a color and name and print using template literals.
+- **10_multiplicationTable.js:** Function to calculate a multiplication table.
+- **11_secondsToEndOfCourse.js:** Function to calculate the remaining time in seconds until the end of the course.
+- **README.md:** This is the practice document with answered questions.
 
 #### Instructions:
 
