@@ -53,16 +53,11 @@ studentCollection.addStudent("Emily White", 21, [88, 90, 92], true);
 // console.log(studentCollection.getHonorRollStudents());
 
 // 15. serializeStudents: Converts the students array to a JSON string.
-// 16. deserializeStudents: Converts a JSON string back into the students array.
-
-// console.log(JSON.stringify(studentCollection));
-
-// // TASK: test all the methods you have created:
-
-// // Serialize the students to JSON
 // const serializedData = studentCollection.serializeStudents();
 // console.log("Serialized Data:", serializedData);
 
-// //  Deserialize the JSON back into the collection
+// 16. deserializeStudents: Converts a JSON string back into the students array.
 // studentCollection.deserializeStudents(serializedData);
 // console.log("Deserialized Data:", studentCollection.students);
+
+// console.log(JSON.stringify(studentCollection));
