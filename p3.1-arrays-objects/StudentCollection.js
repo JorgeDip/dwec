@@ -97,9 +97,16 @@ export default class StudentCollection {
 			return `${student.name}: ${formattedGrades}`;
 		});
 	}
+
 	getHonorRollStudents() {
 		return this.students.filter((student) => this.calculateAverageGrade(student.name) >= 90);
 	}
-	serializeStudents() {}
-	deserializeStudents() {}
+
+	serializeStudents() {
+		return JSON.stringify(this.students);
+	}
+
+	deserializeStudents(serializeData) {
+		return JSON.parse(serializeData);
+	}
 }
