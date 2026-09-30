@@ -27,7 +27,8 @@ const cardTemplate = document.querySelector("#card-template").content;
 function renderCards(jsondata) {
 	for (let char of jsondata.data.results) {
 		let newCard = cardTemplate.cloneNode(true);
-		newCard.querySelector(".card-img-top").src = char.thumbnail.path;
+		newCard.querySelector(".card-img-top").src =
+			char.thumbnail.path + "." + char.thumbnail.extension;
 		newCard.querySelector(".card-title").textContent = char.name;
 		newCard.querySelector(".card-text").textContent = char.description || "No description";
 
