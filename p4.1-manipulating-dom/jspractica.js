@@ -31,7 +31,7 @@ function renderCards(jsondata) {
 			char.thumbnail.path + "." + char.thumbnail.extension;
 		newCard.querySelector(".card-title").textContent = char.name;
 		newCard.querySelector(".card-text").textContent = char.description || "No description";
-
+	
 		rowCards.append(newCard);
 	}
 }
