@@ -52,12 +52,11 @@ document.addEventListener("DOMContentLoaded", function () {
 				document.querySelector("#pet-form-submit-btn").textContent = "Add Pet";
 				console.log("I am editing");
 				updatePet();
-				resetForm();
 			} else {
 				addPet();
-				resetForm();
 			}
 
+			resetForm();
 			displayPets();
 		}
 	});
@@ -227,6 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			const pet_code = e.target.getAttribute("data-pet-code");
 			pet = pets.find((p) => p.pet_code.toLowerCase() === pet_code.toLowerCase());
 
+			// if pet is found, toggle the is_sold property
 			if (pet) {
 				pet.is_sold = !pet.is_sold;
 			}
