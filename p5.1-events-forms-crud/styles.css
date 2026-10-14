@@ -206,7 +206,7 @@ button[type="submit"]:active {
 }
 
 .pet-card.sold .pet-image-container img {
-    filter: grayscale(40%);
+    filter: grayscale(90%);
 }
 
 .pet-info {

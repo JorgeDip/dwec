@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Max",
+        "description": "Description",
+        "image_url": "",
+        "birthdate": "",
+        "price": 120,
+        "pet_code": "ABC123",
+        "is_sold": true
+    },
+    {
+        "name": "Bella",
+        "description": "Description",
+        "image_url": "",
+        "birthdate": "",
+        "price": 150,
+        "pet_code": "DEF456",
+        "is_sold": false
+    }
+]
