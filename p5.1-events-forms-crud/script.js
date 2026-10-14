@@ -49,8 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			// chek if we are editing or adding a new pet
 			if (window.editingPetCode) {
 				window.editingPetCode = null;
-				document.querySelector("#pet-form-submit-btn").textContent = "Add Pet";
-				console.log("I am editing");
 				updatePet();
 			} else {
 				addPet();
