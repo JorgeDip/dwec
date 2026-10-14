@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				window.editingPetCode = null;
 				document.querySelector("#pet-form-submit-btn").textContent = "Add Pet";
 				console.log("I am editing");
-
+				updatePet();
 				resetForm();
 			} else {
 				addPet();
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (!isValidImageUrl(image)) isValid = false;
 		if (!isValidBirthdate(birthdate)) isValid = false;
 		if (!isValidPrice(price)) isValid = false;
-		if (!isValidPetCode(pet_code)) isValid = false;
+		if (!window.editingPetCode) if (!isValidPetCode(pet_code)) isValid = false;
 
 		return isValid;
 	}
@@ -81,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		birthdate.value = "";
 		price.value = "";
 		pet_code.value = "";
+		pet_code.removeAttribute("disabled");
 		is_sold.checked = false;
 		submitBtn.textContent = "Add pet";
 	}
@@ -175,7 +176,16 @@ document.addEventListener("DOMContentLoaded", function () {
 		pets.push(newPet);
 	}
 
-	function editPet() {}
+	function updatePet() {
+		pet = pets.find((p) => p.pet_code.toLowerCase() === pet_code.value.toLowerCase());
+
+		pet.pet_name = pet_name.value;
+		pet.description = description.value;
+		pet.image_url = image.value;
+		pet.birthdate = birthdate.value;
+		pet.price = price.value;
+		pet.is_sold = is_sold.checked;
+	}
 
 	function displayPets() {
 		pet_grid.innerHTML = ""; // Clear the grid before displaying pets
@@ -191,10 +201,12 @@ document.addEventListener("DOMContentLoaded", function () {
 			newCard.querySelector(".pet-price").textContent = "$" + pet.price;
 
 			if (pet.is_sold) {
+				newCard.querySelector(".btn-toggle-sold").textContent = "Mark as Available";
 				newCard.querySelector(".pet-card").classList.add("sold");
 				newCard.querySelector(".badge").textContent = "Sold";
 				newCard.querySelector(".badge").classList.add("sold-badge");
 			} else {
+				newCard.querySelector(".btn-toggle-sold").textContent = "Mark as Sold";
 				newCard.querySelector(".badge").textContent = "Available";
 				newCard.querySelector(".badge").classList.add("available");
 			}
@@ -207,18 +219,15 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	}
 
-	// Click delete or edit button from pet card
+	// Click mark as sold/available or delete or edit button from pet card
 	document.querySelector(".pet-grid").addEventListener("click", function (e) {
-		console.log(e);
 		// Mark as sold or available pet
 		if (e.target.classList.contains("btn-toggle-sold")) {
 			const pet_code = e.target.getAttribute("data-pet-code");
 			pet = pets.find((p) => p.pet_code.toLowerCase() === pet_code.toLowerCase());
 
-			if (pet.is_sold) {
-				pet.is_sold = false;
-			} else {
-				pet.is_sold = true;
+			if (pet) {
+				pet.is_sold = !pet.is_sold;
 			}
 
 			displayPets();
@@ -249,6 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				birthdate.value = petToEdit.birthdate;
 				price.value = petToEdit.price;
 				pet_code.value = petToEdit.pet_code;
+				pet_code.setAttribute("disabled", "true");
 				is_sold.checked = petToEdit.is_sold;
 
 				window.editingPetCode = petToEdit.pet_code;
