@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		// Global variable to check if edit mode is active
 
 		if (validateForm()) {
+			// chek if we are editing or adding a new pet
 			if (window.editingPetCode) {
 				window.editingPetCode = null;
 				document.querySelector("#pet-form-submit-btn").textContent = "Add Pet";
