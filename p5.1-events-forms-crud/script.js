@@ -132,13 +132,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	function displayPets() {
 		for (let pet of pets) {
-			console.log(pet.image_url);
-			let newCard = cardTemplate.cloneNode(true);
-			newCard.querySelector(".pet-image").src = pet.image_url || "a";
+			let newCard = cardTemplate.content.cloneNode(true);
+			newCard.querySelector(".pet-image").src =
+				pet.image_url || "https://images.unsplash.com/photo-1543466835-00a7907e9de1";
 			newCard.querySelector(".pet-name").textContent = pet.name;
 			newCard.querySelector(".pet-description").textContent = pet.description;
+			newCard.querySelector(".pet-code").textContent = pet.pet_code;
+			newCard.querySelector(".pet-birthdate").textContent = pet.birthdate;
+			newCard.querySelector(".pet-price").textContent = "$" + pet.price;
 
-			rowCards.append(newCard);
+			if (pet.is_sold) {
+				newCard.querySelector(".badge").textContent = "Sold";
+				newCard.querySelector(".badge").classList.add("sold-badge");
+			} else {
+				newCard.querySelector(".badge").classList.add("available");
+			}
+
+			pet_grid.append(newCard);
 		}
 	}
 });
