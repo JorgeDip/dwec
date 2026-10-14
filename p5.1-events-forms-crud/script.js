@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	function updatePet() {
 		pet = pets.find((p) => p.pet_code.toLowerCase() === pet_code.value.toLowerCase());
 
-		pet.pet_name = pet_name.value;
+		pet.name = pet_name.value;
 		pet.description = description.value;
 		pet.image_url = image.value;
 		pet.birthdate = birthdate.value;
