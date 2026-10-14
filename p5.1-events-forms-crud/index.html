@@ -16,44 +16,32 @@
                 <div class="form-group">
                     <label for="name">Name of the pet</label>
                     <input type="text" id="name" placeholder="Name of the pet">
-                    <div class="error-message">
-                        Name is required and must be at least 2 characters long.
-                    </div>
+                    <div class="error-message"></div>
                 </div>
                 <div class="form-group">
                     <label for="description">Description of the pet</label>
                     <input type="text" id="description" placeholder="Description of the pet">
-                    <div class="error-message">
-                        Description is required.
-                    </div>
+                    <div class="error-message"></div>
                 </div>
                 <div class="form-group">
                     <label for="image">Image URL</label>
                     <input type="text" id="image" placeholder="Image URL">
-                    <div class="error-message">
-                        Image url is required.
-                    </div>
+                    <div class="error-message"></div>
                 </div>
                 <div class="form-group">
                     <label for="birthdate">Birthdate</label>
                     <input type="date" id="birthdate">
-                    <div class="error-message">
-                        Birthdate is required.
-                    </div>
+                    <div class="error-message"></div>
                 </div>
                 <div class="form-group">
                     <label for="price">Price</label>
-                    <input type="numeric" id="price" placeholder="Price">
-                    <div class="error-message">
-                        Price is required.
-                    </div>
+                    <input type="number" id="price" placeholder="Price">
+                    <div class="error-message"></div>
                 </div>
                 <div class="form-group">
                     <label for="pet_code">Pet code</label>
                     <input type="text" id="pet_code" placeholder="Pet code">
-                    <div class="error-message">
-                        Petcode is required.
-                    </div>
+                    <div class="error-message"></div>
                 </div>
                 <div class="form-group">
                     <input type="checkbox" id="is_sold"> <label for="is_sold">Is sold?</label>
@@ -68,6 +56,72 @@
             <h2>Pet List</h2>
 
             <div class="pet-grid">
+                <article class="pet-card">
+                    <div class="pet-image-container">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1" alt="Max el perrito">
+                        <span class="badge available">Available</span>
+                    </div>
+                    <div class="pet-info">
+                        <h3>Max</h3>
+                        <p class="pet-description">Un cachorro juguetón y muy amigable con los niños.</p>
+                        <div class="pet-details">
+                            <span><strong>Code:</strong> PET-001</span>
+                            <span><strong>Birthdate:</strong> 2024-05-10</span>
+                        </div>
+                        <div class="pet-price">$250.00</div>
+                    </div>
+                    <div class="pet-actions">
+                        <button class="btn-toggle-sold" title="Toggle Sold Status">Mark as Sold</button>
+                        <div class="action-group">
+                            <button class="btn-edit" title="Edit Pet">Edit</button>
+                            <button class="btn-delete" title="Delete Pet">Delete</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="pet-card">
+                    <div class="pet-image-container">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1" alt="Max el perrito">
+                        <span class="badge available">Available</span>
+                    </div>
+                    <div class="pet-info">
+                        <h3>Max</h3>
+                        <p class="pet-description">Un cachorro juguetón y muy amigable con los niños.</p>
+                        <div class="pet-details">
+                            <span><strong>Code:</strong> PET-001</span>
+                            <span><strong>Birthdate:</strong> 2024-05-10</span>
+                        </div>
+                        <div class="pet-price">$250.00</div>
+                    </div>
+                    <div class="pet-actions">
+                        <button class="btn-toggle-sold" title="Toggle Sold Status">Mark as Sold</button>
+                        <div class="action-group">
+                            <button class="btn-edit" title="Edit Pet">Edit</button>
+                            <button class="btn-delete" title="Delete Pet">Delete</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="pet-card">
+                    <div class="pet-image-container">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1" alt="Max el perrito">
+                        <span class="badge available">Available</span>
+                    </div>
+                    <div class="pet-info">
+                        <h3>Max</h3>
+                        <p class="pet-description">Un cachorro juguetón y muy amigable con los niños.</p>
+                        <div class="pet-details">
+                            <span><strong>Code:</strong> PET-001</span>
+                            <span><strong>Birthdate:</strong> 2024-05-10</span>
+                        </div>
+                        <div class="pet-price">$250.00</div>
+                    </div>
+                    <div class="pet-actions">
+                        <button class="btn-toggle-sold" title="Toggle Sold Status">Mark as Sold</button>
+                        <div class="action-group">
+                            <button class="btn-edit" title="Edit Pet">Edit</button>
+                            <button class="btn-delete" title="Delete Pet">Delete</button>
+                        </div>
+                    </div>
+                </article>
                 <article class="pet-card">
                     <div class="pet-image-container">
                         <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1" alt="Max el perrito">

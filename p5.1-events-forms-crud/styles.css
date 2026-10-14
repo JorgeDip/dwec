@@ -63,6 +63,10 @@ form {
     cursor: pointer;
 }
 
+label {
+    width: 100%;
+}
+
 input[type="text"],
 input[type="date"],
 input[type="numeric"],
@@ -129,6 +133,11 @@ button[type="submit"]:active {
 
 /* pet list */
 
+.pet-list-section {
+    height: 100vh;
+    overflow-y: auto;
+}
+
 .pet-list-section h2 {
     font-size: 1.5rem;
     color: #1e293b;
@@ -141,6 +150,7 @@ button[type="submit"]:active {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
+
 }
 
 .pet-card {

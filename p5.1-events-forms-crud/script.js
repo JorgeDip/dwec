@@ -2,6 +2,7 @@ const pet_name = document.getElementById("name");
 const description = document.getElementById("description");
 const image = document.getElementById("image");
 const birthdate = document.getElementById("birthdate");
+const price = document.getElementById("price");
 const pet_code = document.getElementById("pet_code");
 const is_sold = document.getElementById("is_sold");
 const form = document.getElementById("petForm");
@@ -12,76 +13,84 @@ form.addEventListener("submit", function (event) {
 	event.preventDefault();
 	event.stopPropagation();
 
+	// Check if its in edit mode
+	const urlParams = new URLSearchParams(window.location.search);
+	const mode = urlParams.get("mode");
+
+	if (mode == "edit") console.log("I am editing");
+	console.log(is_sold.checked);
 	if (validateForm()) {
-		console.log("All fields are ok, we can proceed");
-		form.submit();
-	} else {
-		console.log("There is some not-valid field. The user should ckeck them.");
+		addPet();
+		// form.submit();
 	}
 });
 
 function validateForm() {
 	var isValid = true;
 
-	if (pet_name.value.trim().length < 1) {
-		markFieldAsNotValid(pet_name, "Input a name 1 or more characters long.");
-		isValid = false;
-	} else {
-		markFieldAsValid(pet_name);
-	}
-
-	if (description.value.trim().length < 1) {
-		markFieldAsNotValid(description, "Input a description.");
-		isValid = false;
-	} else {
-		markFieldAsValid(description);
-	}
-
-	if (image.value.trim().length < 1) {
-		markFieldAsNotValid(image, "Input a image url.");
-		isValid = false;
-	} else {
-		markFieldAsValid(image);
-	}
-
-	if (birthdate.value.trim().length < 1) {
-		markFieldAsNotValid(birthdate, "Input a birthdate.");
-		isValid = false;
-	} else {
-		markFieldAsValid(birthdate);
-	}
-
-	if (price.value.trim().length < 1) {
-		markFieldAsNotValid(price, "Input a price.");
-		isValid = false;
-	} else {
-		markFieldAsValid(price);
-	}
-
-	if (pet_code.value.trim().length < 1) {
-		markFieldAsNotValid(pet_code, "Input a pet code.");
-		isValid = false;
-	} else {
-		markFieldAsValid(pet_code);
-	}
-
-	if (isValidPetCode(pet_code)) {
-		markFieldAsNotValid(pet_code, "Input a valid pet code.");
-		isValid = false;
-	} else {
-		markFieldAsValid(pet_code);
-	}
+	if (!isValidInput(pet_name)) isValid = false;
+	if (!isValidInput(description)) isValid = false;
+	if (!isValidImageUrl(image)) isValid = false;
+	if (!isValidBirthdate(birthdate)) isValid = false;
+	if (!isValidPrice(price)) isValid = false;
+	if (!isValidPetCode(pet_code)) isValid = false;
 
 	return isValid;
 }
 
-function isValidPetCode(cp) {
-	const cpRegex = /^[a-zA-z]{3}[0-9]{3}$/;
-	if (cpRegex.test(cp)) {
-		return true;
-	} else {
+// Auxiliary functions
+function isValidInput(element, message = "This field cannot be empty") {
+	if (element.value.trim().length < 1) {
+		markFieldAsNotValid(element, message);
 		return false;
 	}
+	markFieldAsValid(element);
+	return true;
+}
+
+function isValidImageUrl(image) {
+	if (!isValidInput(image, "Image URL cannot be empty")) return false;
+
+	const regex = /^https?:\/\/.+\.(jpg|jpeg|png|gif)(\?.*)?$/i;
+	if (!regex.test(image.value.trim())) {
+		markFieldAsNotValid(image, "Image URL not valid (e.g https://example.com/image.png)");
+		return false;
+	}
+	return true;
+}
+
+function isValidBirthdate(birthdate) {
+	if (!isValidInput(birthdate, "Birthdate cannot be empty")) return false;
+
+	if (new Date(birthdate.value) > new Date()) {
+		markFieldAsNotValid(birthdate, "Birthdate cannot be in the future");
+		return false;
+	}
+
+	return true;
+}
+
+function isValidPrice(price) {
+	if (!isValidInput(price, "Price cannot be empty")) return false;
+
+	if (price.value < 0) {
+		markFieldAsNotValid(price, "Price cannot be less than 0");
+		return false;
+	}
+
+	return true;
+}
+
+function isValidPetCode(pet_code) {
+	if (!isValidInput(pet_code, "Pet code cannot be empty")) return false;
+
+	const regex = /^[a-z]{3}[0-9]{3}$/i;
+	if (!regex.test(pet_code.value.trim())) {
+		markFieldAsNotValid(pet_code, "Pet code not valid (e.g ABC123)");
+		return false;
+	}
+
+	return true;
 }
 
 function markFieldAsNotValid(element, message) {
@@ -93,7 +102,23 @@ function markFieldAsNotValid(element, message) {
 	element.parentNode.classList.add("is-not-valid-field");
 }
 
-// This function set a field as valid and hide the error field
 function markFieldAsValid(element) {
 	element.parentNode.classList.remove("is-not-valid-field");
+}
+
+// CRUD
+
+function addPet() {
+	const newPet = {
+		name: pet_name.value,
+		description: description.value,
+		image_url: image.value,
+		birthdate: birthdate.value,
+		price: price.value,
+		pet_code: pet_code.value,
+		is_sold: is_sold.checked,
+	};
+
+	pets.push(newPet);
+	console.log(pets);
 }
