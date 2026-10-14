@@ -62,8 +62,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	function validateForm() {
 		var isValid = true;
 
-		if (!isValidInput(pet_name)) isValid = false;
-		if (!isValidInput(description)) isValid = false;
+		if (!isValidInput(pet_name, "Name cannot be empty")) isValid = false;
+		if (!isValidInput(description, "Description cannot be empty")) isValid = false;
 		if (!isValidImageUrl(image)) isValid = false;
 		if (!isValidBirthdate(birthdate)) isValid = false;
 		if (!isValidPrice(price)) isValid = false;
@@ -219,6 +219,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Click mark as sold/available or delete or edit button from pet card
 	document.querySelector(".pet-grid").addEventListener("click", function (e) {
+		console.log(e);
 		// Mark as sold or available pet
 		if (e.target.classList.contains("btn-toggle-sold")) {
 			const pet_code = e.target.getAttribute("data-pet-code");
