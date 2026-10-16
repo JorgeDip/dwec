@@ -15,26 +15,40 @@ document.addEventListener("DOMContentLoaded", function () {
 	const pet_grid = document.querySelector(".pet-grid");
 
 	// fetch and display pets
-	let pets = [
-		{
-			name: "Max",
-			description: "Description",
-			image_url: "https://images.unsplash.com/photo-1543466835-00a7907e9de1",
-			birthdate: "2026-09-12",
-			price: 120,
-			pet_code: "ABC123",
-			is_sold: true,
-		},
-		{
-			name: "Bella",
-			description: "Description",
-			image_url: "https://images.unsplash.com/photo-1543466835-00a7907e9de1",
-			birthdate: "2026-09-22",
-			price: 150,
-			pet_code: "DEF456",
-			is_sold: false,
-		},
-	];
+
+	function getPets() {
+		const storedPets = localStorage.getItem("pets");
+		if (storedPets) {
+			return JSON.parse(storedPets);
+		} else {
+			const initialPets = [
+				{
+					name: "Max",
+					description: "Description",
+					image_url: "https://images.unsplash.com/photo-1543466835-00a7907e9de1",
+					birthdate: "2026-09-12",
+					price: 120,
+					pet_code: "ABC123",
+					is_sold: true,
+				},
+				{
+					name: "Bella",
+					description: "Description",
+					image_url: "https://images.unsplash.com/photo-1543466835-00a7907e9de1",
+					birthdate: "2026-09-22",
+					price: 150,
+					pet_code: "DEF456",
+					is_sold: false,
+				},
+			];
+			savePets(initialPets);
+			return initialPets;
+		}
+	}
+
+	function savePets(petsArray) {
+		localStorage.setItem("pets", JSON.stringify(petsArray));
+	}
 
 	displayPets();
 
@@ -170,11 +184,13 @@ document.addEventListener("DOMContentLoaded", function () {
 			pet_code: pet_code.value,
 			is_sold: is_sold.checked,
 		};
-
+		let pets = getPets();
 		pets.push(newPet);
+		savePets(pets);
 	}
 
 	function updatePet() {
+		let pets = getPets();
 		pet = pets.find((p) => p.pet_code.toLowerCase() === pet_code.value.toLowerCase());
 
 		pet.name = pet_name.value;
@@ -183,10 +199,13 @@ document.addEventListener("DOMContentLoaded", function () {
 		pet.birthdate = birthdate.value;
 		pet.price = price.value;
 		pet.is_sold = is_sold.checked;
+
+		savePets(pets);
 	}
 
 	function displayPets() {
 		pet_grid.innerHTML = ""; // Clear the grid before displaying pets
+		let pets = getPets();
 		for (let pet of pets) {
 			let newCard = cardTemplate.content.cloneNode(true);
 
@@ -219,15 +238,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Click mark as sold/available or delete or edit button from pet card
 	document.querySelector(".pet-grid").addEventListener("click", function (e) {
-		console.log(e);
 		// Mark as sold or available pet
 		if (e.target.classList.contains("btn-toggle-sold")) {
 			const pet_code = e.target.getAttribute("data-pet-code");
+			let pets = getPets();
 			pet = pets.find((p) => p.pet_code.toLowerCase() === pet_code.toLowerCase());
 
 			// if pet is found, toggle the is_sold property
 			if (pet) {
 				pet.is_sold = !pet.is_sold;
+				savePets(pets);
 			}
 
 			displayPets();
@@ -236,8 +256,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		// Delete pet
 		if (e.target.classList.contains("btn-delete")) {
 			const pet_code = e.target.getAttribute("data-pet-code");
+			let pets = getPets();
+
 			if (confirm("Are you sure?")) {
 				pets = pets.filter((p) => p.pet_code.toLowerCase() !== pet_code.toLowerCase());
+				savePets(pets);
 				displayPets();
 			}
 		}
@@ -245,6 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		// Edit pet
 		if (e.target.classList.contains("btn-edit")) {
 			const pet_code_find = e.target.getAttribute("data-pet-code");
+			let pets = getPets();
 
 			const petToEdit = pets.find((p) => p.pet_code === pet_code_find);
 			if (petToEdit) {
