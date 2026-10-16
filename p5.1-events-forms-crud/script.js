@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				{
 					name: "Max",
 					description: "Description",
-					image_url: "https://images.unsplash.com/photo-1543466835-00a7907e9de1",
+					image_url: "https://cdn.pixabay.com/photo/2023/01/03/16/00/dog-7694676_1280.jpg",
 					birthdate: "2026-09-12",
 					price: 120,
 					pet_code: "ABC123",
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				{
 					name: "Bella",
 					description: "Description",
-					image_url: "https://images.unsplash.com/photo-1543466835-00a7907e9de1",
+					image_url: "http://127.0.0.1:5500/p5.1-events-forms-crud/muss.jpg",
 					birthdate: "2026-09-22",
 					price: 150,
 					pet_code: "DEF456",
